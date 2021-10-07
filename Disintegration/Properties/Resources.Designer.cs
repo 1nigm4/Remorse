@@ -63,9 +63,19 @@ namespace Disintegration.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Byte[].
         /// </summary>
-        internal static byte[] Login {
+        internal static byte[] background {
             get {
-                object obj = ResourceManager.GetObject("Login", resourceCulture);
+                object obj = ResourceManager.GetObject("background", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] background_login {
+            get {
+                object obj = ResourceManager.GetObject("background_login", resourceCulture);
                 return ((byte[])(obj));
             }
         }
