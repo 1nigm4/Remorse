@@ -2,13 +2,13 @@
 using Disintegration.ViewModels.Base;
 using Disintegration.Views.Pages;
 using Disintegration.Views.Windows;
-using System.Linq;
+using System;
 using System.Windows;
 using System.Windows.Input;
 
 namespace Disintegration.ViewModels
 {
-    class AuthPageViewModel : ViewModel
+    class AuthWindowViewModel : ViewModel
     {
         #region Properties
         private string login;
@@ -24,28 +24,15 @@ namespace Disintegration.ViewModels
             set => Set(ref password, value);
         }
         #endregion
+
         #region Commands
-        public ICommand AuthCommand { get; }
-        private void OnAuthCommandExecuted(object p)
-        {
-            bool isLogged = App.Db.users.Any(u => u.Login == this.Login && u.Password == this.Password);
-            if (isLogged)
-            {
-                MessageBox.Show("Успешный вход!");
-            }
-            else
-                MessageBox.Show("Неверный логин или пароль!");
-        }
-        private bool CanAuthCommandExecute(object p) => !string.IsNullOrWhiteSpace(Login) && !string.IsNullOrWhiteSpace(Password);
         public ICommand TransitionRegisterCommand { get; }
         private void OnTransitionRegisterCommandExecuted(object p) => AuthWindow.Navigate(new RegPage());
         private bool CanTransitionRegisterCommandExecute(object p) => true;
         #endregion
-        public AuthPageViewModel()
+
+        public AuthWindowViewModel()
         {
-
-
-            AuthCommand = new LambdaCommand(OnAuthCommandExecuted, CanAuthCommandExecute);
             TransitionRegisterCommand = new LambdaCommand(OnTransitionRegisterCommandExecuted, CanTransitionRegisterCommandExecute);
         }
     }

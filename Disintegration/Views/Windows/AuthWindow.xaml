@@ -1,15 +1,16 @@
-﻿<Window x:Class="Disintegration.Views.Windows.MainWindow"
+﻿<Window x:Class="Disintegration.Views.Windows.AuthWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Disintegration"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:vm="clr-namespace:Disintegration.ViewModels"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Disintegration.Views.Windows"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Background="Transparent"
+        Title="Remorse" Height="450" Width="800" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" MouseMove="Window_onMouseMove">
     <Window.DataContext>
-        <vm:MainWindowViewModel/>
+        <vm:AuthWindowViewModel/>
     </Window.DataContext>
     <Grid>
         <Grid.Background>
@@ -40,7 +41,7 @@
                 <StackPanel.DataContext>
                     <vm:ApplicationViewModel/>
                 </StackPanel.DataContext>
-                <Button Command="{Binding ApplicationRollUpCommand}" ToolTip="Свернуть" Height="25" Width="25" BorderThickness="0" Background="Transparent">
+                <Button Command="{Binding ApplicationRollUpCommand}" ToolTip="Свернуть" Height="25" Width="25" BorderThickness="0" Background="Transparent" Cursor="Hand">
                     <fa:ImageAwesome Icon="WindowMinimize" Foreground="White" Height="16" Width="16" Margin="-16,0,-9,-10"/>
                 </Button>
                 <Button Command="{Binding ApplicationExitCommand}" ToolTip="Закрыть" Height="25" Width="25" BorderThickness="0" Background="Transparent" Margin="0,0,10,0">
