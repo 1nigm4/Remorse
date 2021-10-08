@@ -43,8 +43,6 @@ namespace Disintegration.ViewModels
         #endregion
         public AuthPageViewModel()
         {
-
-
             AuthCommand = new LambdaCommand(OnAuthCommandExecuted, CanAuthCommandExecute);
             TransitionRegisterCommand = new LambdaCommand(OnTransitionRegisterCommandExecuted, CanTransitionRegisterCommandExecute);
         }
