@@ -7,13 +7,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Disintegration.Views.Windows"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Resources/Login.jpg"/>
+            <ImageBrush ImageSource="/Resources/background.jpg"/>
         </Grid.Background>
 
         <Grid.RowDefinitions>

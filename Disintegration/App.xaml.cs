@@ -1,10 +1,4 @@
 ﻿using Disintegration.Data;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Disintegration
@@ -16,6 +10,13 @@ namespace Disintegration
         public App()
         {
             Db = new Database();
+        }
+
+        public static void Navigate(Window window)
+        {
+            window.Show();
+            Current.MainWindow.Close();
+            Current.MainWindow = window;
         }
     }
 }

@@ -30,9 +30,7 @@ namespace Disintegration.ViewModels
         {
             bool isLogged = App.Db.users.Any(u => u.Login == this.Login && u.Password == this.Password);
             if (isLogged)
-            {
-                MessageBox.Show("Успешный вход!");
-            }
+                App.Navigate(new MainWindow());
             else
                 MessageBox.Show("Неверный логин или пароль!");
         }
