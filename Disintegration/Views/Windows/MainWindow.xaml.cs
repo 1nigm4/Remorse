@@ -11,7 +11,6 @@ namespace Disintegration.Views.Windows
             InitializeComponent();
 
             currentPage = Page;
-            currentPage.
         }
     }
 }
