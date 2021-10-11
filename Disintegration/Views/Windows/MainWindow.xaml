@@ -3,10 +3,55 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Disintegration.ViewModels"
         xmlns:local="clr-namespace:Disintegration.Views.Windows"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/background.jpg"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="14*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Margin="0,0,20,0">
+                <StackPanel.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" Command="{Binding }"/>
+                </StackPanel.InputBindings>
+                <Image Width="30" Height="30"/>
+                <TextBlock Text="{Binding User.Login}" VerticalAlignment="Center" Foreground="LightGray" Margin="10,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Top" Margin="0,0,0,0" HorizontalAlignment="Right">
+                <StackPanel.DataContext>
+                    <vm:ApplicationViewModel/>
+                </StackPanel.DataContext>
+                <Button Command="{Binding ApplicationRollUpCommand}" ToolTip="Свернуть" Height="28" Width="28" BorderThickness="0">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Resources/rollup.png" Stretch="Uniform"/>
+                    </Button.Background>
+                </Button>
+                <Button Command="{Binding ApplicationExpandCommand}" Height="28" Width="28"/>
+                <Button Command="{Binding ApplicationExitCommand}" ToolTip="Закрыть" Height="28" Width="32" BorderThickness="0" Cursor="Hand">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Resources/exit.png" Stretch="UniformToFill"/>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <Frame x:Name="Page" Grid.Row="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

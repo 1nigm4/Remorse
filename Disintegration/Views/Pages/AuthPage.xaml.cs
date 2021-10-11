@@ -11,6 +11,7 @@ namespace Disintegration.Views.Pages
             InitializeComponent();
 
             ViewModel = new AuthPageViewModel();
+            Login.Focus();
             DataContext = ViewModel;
         }
 

@@ -2,8 +2,6 @@
 using Disintegration.ViewModels.Base;
 using Disintegration.Views.Pages;
 using Disintegration.Views.Windows;
-using System;
-using System.Windows;
 using System.Windows.Input;
 
 namespace Disintegration.ViewModels

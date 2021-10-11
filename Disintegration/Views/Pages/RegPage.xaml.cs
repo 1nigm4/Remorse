@@ -12,6 +12,7 @@ namespace Disintegration.Views.Pages
             InitializeComponent();
 
             ViewModel = new RegPageViewModel();
+            Name.Focus();
             DataContext = ViewModel;
         }
 

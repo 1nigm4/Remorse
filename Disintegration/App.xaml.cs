@@ -11,5 +11,13 @@ namespace Disintegration
         {
             Db = new Database();
         }
+
+        public static void Navigate(Window window)
+        {
+            window.Show();
+            Current.MainWindow.Close();
+            window.MaxHeight = SystemParameters.WorkArea.Height;
+            Current.MainWindow = window;
+        }
     }
 }
