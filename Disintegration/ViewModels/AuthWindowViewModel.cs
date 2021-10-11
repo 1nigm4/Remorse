@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace Disintegration.ViewModels
 {
-    class MainWindowViewModel : ViewModel
+    class AuthWindowViewModel : ViewModel
     {
         #region Properties
         private string login;
@@ -26,23 +26,13 @@ namespace Disintegration.ViewModels
         #endregion
 
         #region Commands
-        public ICommand ApplicationExitCommand { get; }
-        private void OnApplicationExitCommandExecuted(object p) => Environment.Exit(0);
-        private bool CanApplicationExitCommandExecute(object p) => true;
-
-        public ICommand ApplicationRollUpCommand { get; }
-        private void OnApplicationRollUpCommandExecuted(object p) => App.Current.MainWindow.WindowState = WindowState.Minimized;
-        private bool CanApplicationRollUpCommandExecute(object p) => true;
-
         public ICommand TransitionRegisterCommand { get; }
-        private void OnTransitionRegisterCommandExecuted(object p) => MainWindow.Navigate(new RegPage());
+        private void OnTransitionRegisterCommandExecuted(object p) => AuthWindow.Navigate(new RegPage());
         private bool CanTransitionRegisterCommandExecute(object p) => true;
         #endregion
 
-        public MainWindowViewModel()
+        public AuthWindowViewModel()
         {
-            ApplicationExitCommand = new LambdaCommand(OnApplicationExitCommandExecuted, CanApplicationExitCommandExecute);
-            ApplicationRollUpCommand = new LambdaCommand(OnApplicationRollUpCommandExecuted, CanApplicationRollUpCommandExecute);
             TransitionRegisterCommand = new LambdaCommand(OnTransitionRegisterCommandExecuted, CanTransitionRegisterCommandExecute);
         }
     }

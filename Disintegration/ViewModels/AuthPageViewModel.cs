@@ -38,7 +38,7 @@ namespace Disintegration.ViewModels
         }
         private bool CanAuthCommandExecute(object p) => !string.IsNullOrWhiteSpace(Login) && !string.IsNullOrWhiteSpace(Password);
         public ICommand TransitionRegisterCommand { get; }
-        private void OnTransitionRegisterCommandExecuted(object p) => MainWindow.Navigate(new RegPage());
+        private void OnTransitionRegisterCommandExecuted(object p) => AuthWindow.Navigate(new RegPage());
         private bool CanTransitionRegisterCommandExecute(object p) => true;
         #endregion
         public AuthPageViewModel()

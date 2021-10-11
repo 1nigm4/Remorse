@@ -45,12 +45,12 @@ namespace Disintegration.ViewModels
             User newUser = new User() { Login = this.Login, Password = this.Password, Name = this.Name };
             await App.Db.AddAsync(newUser);
             await App.Db.SaveChangesAsync();
-            MainWindow.Navigate(new AuthPage());
+            AuthWindow.Navigate(new AuthPage());
         }
         private bool CanRegisterCommandExecute(object p) => !string.IsNullOrWhiteSpace(Login) && !string.IsNullOrWhiteSpace(Password) && !string.IsNullOrWhiteSpace(Name);
 
         public ICommand TransitionAuthCommand { get; }
-        private void OnTransitionAuthCommandExecuted(object p) => MainWindow.Navigate(new AuthPage());
+        private void OnTransitionAuthCommandExecuted(object p) => AuthWindow.Navigate(new AuthPage());
         private bool CanTransitionAuthCommandExecute(object p) => true;
         #endregion
 
